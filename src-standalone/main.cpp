@@ -5,26 +5,24 @@
 #include <iostream>
 #include <vector>
 
-
 bool compare(const int (&grid)[N][N], const int (&expected)[N][N])
 {
-	for (int i = 0; i < N; i++)
-	{
-		for (int j = 0; j < N; j++)
-		{
-			if(grid[i][j] != expected[i][j])
-			{
-				return false;
-			}
-		}
-	}
-	return true;
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            if(grid[i][j] != expected[i][j])
+            {
+                return false;
+            }
+        }
+    }
+    return true;
 }
-
 
 int main(int argc, char **argv)
 {
-	// 0 means unassigned cells
+    // 0 means unassigned cells
     int grid[N][N] = { { 3, 0, 6, 5, 0, 8, 4, 0, 0 },
         { 5, 2, 0, 0, 0, 0, 0, 0, 0 },
         { 0, 8, 7, 0, 0, 0, 0, 3, 1 },
@@ -73,3 +71,4 @@ int main(int argc, char **argv)
 
     return 0;
 }
+

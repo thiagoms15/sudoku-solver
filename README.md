@@ -14,13 +14,27 @@ ___
 ___
 
 ## :mage_man: 2. How to build
-### 2.1. :alembic: Tests
+
+### 2.1. :desktop_computer: Standalone version
 ```
 mkdir build && cd build
+cmake ../src-standalone/
+make -j$(nprocs)
+```
+
+### 2.2. :video_game: Tests
+```
+mkdir build_tests && cd build_tests
 cmake ../tests/
 make -j$(nprocs)
 ```
 
+### 2.3. :alembic: Qt
+```
+mkdir build_qt && cd build_qt
+qt-cmake ../src-qt/
+ninja
+```
 ___
 
 ## :zombie: 3. TODO :rotating_light:

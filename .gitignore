@@ -1,2 +1,7 @@
 build
 */build
+build_tests
+build_qt
+.cache
+src/.cache
+compile_commands.json
