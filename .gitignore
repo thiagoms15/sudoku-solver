@@ -3,5 +3,7 @@ build
 build_tests
 build_qt
 .cache
-src/.cache
+src-standalone/.cache
+src-qt/.cache
+src-qt/.qt
 compile_commands.json

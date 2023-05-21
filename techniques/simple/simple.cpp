@@ -2,31 +2,10 @@
 #include "simple.h"
 
 
-SimpleSolver::SimpleSolver()
-{
-}
-
-SimpleSolver::~SimpleSolver()
-{
-}
-
-/* A utility function to print grid */
-void print(int arr[N][N])
-{
-	for (int i = 0; i < N; i++)
-	{
-		std::cout << "{";
-		for (int j = 0; j < N; j++)
-			std::cout << arr[i][j] << ", ";
-		std::cout << "},";
-		std::cout << std::endl;
-	}
-}
-
 // Checks whether it will be
 // legal to assign num to the
 // given row, col
-bool SimpleSolver::isSafe(int grid[N][N], int row,
+bool SimpleSolver::isSafe(SudokuTraits::SudokuMatrix& grid, int row,
 					int col, int num)
 {
 
@@ -64,7 +43,7 @@ to assign values to all unassigned locations in
 such a way to meet the requirements for
 Sudoku solution (non-duplication across rows,
 columns, and boxes) */
-bool SimpleSolver::solveSuduko(int grid[N][N], int row, int col)
+bool SimpleSolver::solveSudoku(SudokuTraits::SudokuMatrix& grid, int row, int col)
 {
 	// Check if we have reached the 8th
 	// row and 9th column (0
@@ -86,7 +65,7 @@ bool SimpleSolver::solveSuduko(int grid[N][N], int row, int col)
 	// the grid already contains
 	// value >0, we iterate for next column
 	if (grid[row][col] > 0)
-		return solveSuduko(grid, row, col + 1);
+		return solveSudoku(grid, row, col + 1);
 
 	for (int num = 1; num <= N; num++)
 	{
@@ -108,7 +87,7 @@ bool SimpleSolver::solveSuduko(int grid[N][N], int row, int col)
 
 			// Checking for next possibility with next
 			// column
-			if (solveSuduko(grid, row, col + 1))
+			if (solveSudoku(grid, row, col + 1))
 				return true;
 		}
 
@@ -122,7 +101,7 @@ bool SimpleSolver::solveSuduko(int grid[N][N], int row, int col)
 	return false;
 }
 
-bool SimpleSolver::solve(int arr[N][N])
+bool SimpleSolver::solve(SudokuTraits::SudokuMatrix& arr)
 {
-	return solveSuduko(arr, 0, 0);
+	return solveSudoku(arr, 0, 0);
 }

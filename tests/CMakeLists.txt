@@ -14,6 +14,7 @@ include_directories(
                    )
 
 file(GLOB SOURCES
+    "../techniques/*.cpp"
     "../techniques/simple/*.cpp"
     "../techniques/backtracking/*.cpp"
     )

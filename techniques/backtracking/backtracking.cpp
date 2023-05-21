@@ -8,7 +8,7 @@ to assign values to all unassigned locations in
 such a way to meet the requirements for
 Sudoku solution (non-duplication across rows,
 columns, and boxes) */
-bool BtSolver::solve(int grid[N][N])
+bool BtSolver::solve(SudokuTraits::SudokuMatrix& grid)
 {
 	int row, col;
 
@@ -47,7 +47,7 @@ still unassigned. If found, the reference
 parameters row, col will be set the location
 that is unassigned, and true is returned.
 If no unassigned entries remain, false is returned. */
-bool BtSolver::FindUnassignedLocation(int grid[N][N],
+bool BtSolver::FindUnassignedLocation(SudokuTraits::SudokuMatrix& grid,
 							int& row, int& col)
 {
 	for (row = 0; row < N; row++)
@@ -60,7 +60,7 @@ bool BtSolver::FindUnassignedLocation(int grid[N][N],
 /* Returns a boolean which indicates whether
 an assigned entry in the specified row matches
 the given number. */
-bool BtSolver::UsedInRow(int grid[N][N], int row, int num)
+bool BtSolver::UsedInRow(SudokuTraits::SudokuMatrix& grid, int row, int num)
 {
 	for (int col = 0; col < N; col++)
 		if (grid[row][col] == num)
@@ -71,7 +71,7 @@ bool BtSolver::UsedInRow(int grid[N][N], int row, int num)
 /* Returns a boolean which indicates whether
 an assigned entry in the specified column
 matches the given number. */
-bool BtSolver::UsedInCol(int grid[N][N], int col, int num)
+bool BtSolver::UsedInCol(SudokuTraits::SudokuMatrix& grid, int col, int num)
 {
 	for (int row = 0; row < N; row++)
 		if (grid[row][col] == num)
@@ -82,7 +82,7 @@ bool BtSolver::UsedInCol(int grid[N][N], int col, int num)
 /* Returns a boolean which indicates whether
 an assigned entry within the specified 3x3 box
 matches the given number. */
-bool BtSolver::UsedInBox(int grid[N][N], int boxStartRow,
+bool BtSolver::UsedInBox(SudokuTraits::SudokuMatrix& grid, int boxStartRow,
 			int boxStartCol, int num)
 {
 	for (int row = 0; row < 3; row++)
@@ -97,7 +97,7 @@ bool BtSolver::UsedInBox(int grid[N][N], int boxStartRow,
 /* Returns a boolean which indicates whether
 it will be legal to assign num to the given
 row, col location. */
-bool BtSolver::isSafe(int grid[N][N], int row,
+bool BtSolver::isSafe(SudokuTraits::SudokuMatrix& grid, int row,
 			int col, int num)
 {
 	/* Check if 'num' is not already placed in
@@ -110,36 +110,3 @@ bool BtSolver::isSafe(int grid[N][N], int row,
 		&& grid[row][col] == UNASSIGNED;
 }
 
-/* A utility function to print grid */
-void BtSolver::printGrid(int grid[N][N])
-{
-	for (int row = 0; row < N; row++)
-	{
-		for (int col = 0; col < N; col++)
-			std::cout << grid[row][col] << " ";
-        std::cout << std::endl;
-	}
-}
-
-// Driver Code
-/*
-int main()
-{
-	// 0 means unassigned cells
-	int grid[N][N] = { { 3, 0, 6, 5, 0, 8, 4, 0, 0 },
-					{ 5, 2, 0, 0, 0, 0, 0, 0, 0 },
-					{ 0, 8, 7, 0, 0, 0, 0, 3, 1 },
-					{ 0, 0, 3, 0, 1, 0, 0, 8, 0 },
-					{ 9, 0, 0, 8, 6, 3, 0, 0, 5 },
-					{ 0, 5, 0, 0, 9, 0, 6, 0, 0 },
-					{ 1, 3, 0, 0, 0, 0, 2, 5, 0 },
-					{ 0, 0, 0, 0, 0, 0, 0, 7, 4 },
-					{ 0, 0, 5, 2, 0, 6, 3, 0, 0 } };
-	if (SolveSudoku(grid) == true)
-		printGrid(grid);
-	else
-		cout << "No solution exists";
-
-	return 0;
-}
-*/

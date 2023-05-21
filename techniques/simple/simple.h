@@ -6,13 +6,13 @@
 class SimpleSolver : public ISolver
 {
 	public:
-		SimpleSolver();
-		~SimpleSolver();
-		bool solve(int arr[N][N]) override;
+		SimpleSolver() = default;
+		~SimpleSolver() = default;
+		bool solve(SudokuTraits::SudokuMatrix&) override;
 
 	private:
-		bool isSafe(int grid[N][N], int row, int col, int num);
-		bool solveSuduko(int grid[N][N], int row, int col);
+		bool isSafe(SudokuTraits::SudokuMatrix& grid, int row, int col, int num);
+		bool solveSudoku(SudokuTraits::SudokuMatrix& grid, int row, int col);
 
 };
 #endif
