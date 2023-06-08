@@ -10,11 +10,12 @@ This is a sudoku solver program in C++
 
 ___
 
-## :small_blue_diamond: 1. Depedencies
+## :small_blue_diamond: 1. Dependencies
  - C++
  - CMake
  - GTest
  - Qt
+ - libCurl
 
 ___
 
