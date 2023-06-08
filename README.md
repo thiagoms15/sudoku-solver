@@ -3,6 +3,11 @@
 <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=E51C44&labelColor=0A1033">
 
 This is a sudoku solver program in C++
+ 
+#### Preview
+
+![Home screen animated](images/screen.gif)
+
 ___
 
 ## :small_blue_diamond: 1. Depedencies
@@ -38,11 +43,9 @@ ninja
 ___
 
 ## :zombie: 3. TODO :rotating_light:
-- Screen to select what algorithm will be used to solve
 - Get the grid from the camera;
 - Screen to insert a grid by hand;
-- Create the tests;
-- GUI using `React Native` <img width="20" alt="React" src="https://reactnative.dev/img/header_logo.svg">.
+- GUI using `React Native` <img width="20" alt="React" src="https://reactnative.dev/img/header_logo.svg"> (submodule).
 
 ## :page_with_curl: 4. License
 
